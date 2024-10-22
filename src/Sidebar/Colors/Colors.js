@@ -1,7 +1,14 @@
-import './Colors.css';
-
+import "./Colors.css";
+import Input from '../../components/Input';
 function Colors() {
-  return <div>Colors</div>;
+  return (
+    <div>
+      <h2 className='sidebar-title color-title'>Colors</h2>
+      <Input />
+      <Input />
+      <Input />
+    </div>
+  );
 }
 
-export default Colors
+export default Colors;
