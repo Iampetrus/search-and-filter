@@ -1,15 +1,15 @@
-import Input from '../../components/Input';
-import './Price.css'
+import Input from "../../components/Input";
+import "./Price.css";
 
- function Price() {
+function Price() {
   return (
-    <div className='ml'>
-      <h2 className='sidebar-title price-title'>Price</h2>
+    <div className="ml">
+      <h2 className="sidebar-title price-title">Price</h2>
       <Input />
       <Input />
       <Input />
     </div>
-  )
+  );
 }
 
-export default Price
+export default Price;
