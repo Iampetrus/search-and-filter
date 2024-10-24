@@ -26,7 +26,10 @@ const handleChange = event => {
   setSelectedCategory(event.target.value)
 }
 
-// buttonfilter
+// button filter
+const handleClick= event => {
+  setSelectedCategory(event.target.value)
+}
 
   return (
     <>
