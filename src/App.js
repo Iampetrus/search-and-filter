@@ -5,40 +5,42 @@ import Products from './Products/Products';
 import Recommended from './Recommended/Recommended';
 import Sidebar from './Sidebar/Sidebar';
 import Card from './components/Card';
+import "./index.css";
 
 // data import
 import products from './db/data';
 
 function App() {
   const[selectedCategory, setSelectedCategory] = useState(null);
-  const[query, setQuery] = useState('');
   
   //input filter
-  const handleInputChange = event  => {
-    setQuery(event.target.value)
-  }
+  const[query, setQuery] = useState('');
+  const handleInputChange = (event)  => {
+    setQuery(event.target.value);
+  };
 
-  const filteredItems = products.filter(product =>
-    product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase() !== -1)
-);
+  const filteredItems = products.filter(
+    (product) => product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1
+  );
 
 // radio filter
-const handleChange = event => {
+const handleChange = (event) => {
   setSelectedCategory(event.target.value)
 }
 
 // button filter
-const handleClick= event => {
+const handleClick= (event) => {
   setSelectedCategory(event.target.value)
 }
 
 function filteredData(products, selected, query) {
-  let filteredProducts  = products
+  let filteredProducts  = products;
 
   //filtering input items
   if(query) {
-    filteredProducts = filteredItems
+    filteredProducts = filteredItems;
   }
+
   //selected filter
   if(selected) {
     filteredProducts= filteredProducts.filter(
@@ -48,9 +50,11 @@ function filteredData(products, selected, query) {
         company  === selected ||
         newPrice === selected ||
         title === selected
-    )
+    );
   }
-return filteredProducts.map(({img, title, star, reviews, prevPrice, newPrice}) => (
+
+return filteredProducts.map(
+  ({img, title, star, reviews, prevPrice, newPrice}) => (
   <Card
     Key={Math.random()}
     img={img}
@@ -67,10 +71,10 @@ const result = filteredData(products, selectedCategory, query);
 
   return (
     <>
-      <Sidebar handleChange={handleChange}/>
-      <Navigation />
-      <Recommended />
-      <Products />
+      <Sidebar handleChange={handleChange} />
+      <Navigation query={query} handleInputChange={handleInputChange} />
+      <Recommended handleClick={handleClick} />
+      <Products result={result} />
     </>
   );
 }
