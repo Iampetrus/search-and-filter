@@ -1,3 +1,4 @@
+// I need to make this work. Search bar is not working!!
 import "./Nav.css";
 import { FiHeart } from "react-icons/fi";
 import { HiOutlineUserAdd } from "react-icons/hi";
